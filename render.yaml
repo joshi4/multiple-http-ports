@@ -1,0 +1,8 @@
+services:
+- name: multiple-http-ports
+  env: go
+  type: web
+  healthCheckPath: /healthz
+  envVars:
+    - key: PORT
+      value: 9090
