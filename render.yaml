@@ -2,6 +2,8 @@ services:
 - name: multiple-http-ports
   env: go
   type: web
+  buildCommand: go build -tags netgo -ldflags '-s -w' -o app
+  startCommand: ./app
   healthCheckPath: /healthz
   envVars:
     - key: PORT
