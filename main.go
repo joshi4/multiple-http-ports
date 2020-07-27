@@ -23,5 +23,7 @@ func main() {
 		http.ListenAndServe(":"+port, nil)
 	}()
 
-	log.Fatalln(http.ListenAndServe(":8888", nil))
+	log.Fatalln(http.ListenAndServe(":8888", http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
+		rw.WriteHeader(http.StatusInternalServerError)
+	})))
 }
